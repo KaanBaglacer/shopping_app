@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/util/extensions/context_extensions.dart';
 import 'package:shopping_app/util/widgets/text_form_fields/name_pass_text_form_field.dart';
 
-class LoginPage extends StatelessWidget {
-  static const ROUTE = "/loginPage";
+class SignUpPage extends StatelessWidget {
+  static const ROUTE = "/signUpPage";
 
   final TextEditingController userNameTextEditingController = TextEditingController();
   final TextEditingController passTextEditingController = TextEditingController();
 
-  LoginPage();
+  SignUpPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,14 +18,14 @@ class LoginPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               const Spacer(flex: 4),
-              usernameTextFormField,
+              userNameTextFormField,
               const Spacer(),
               passwordTextFormField,
-              const Spacer(flex: 7),
-              loginButton(context),
-              const Spacer(),
-              Text("If you don't have user account click here"),
-              const Spacer(),
+              const Spacer(
+                flex: 7,
+              ),
+              signUpButton(context),
+              const Spacer(flex: 2),
             ],
           ),
         ),
@@ -34,7 +33,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget loginButton(BuildContext context) {
+  SizedBox signUpButton(BuildContext context) {
     return SizedBox(
       width: context.width(0.7),
       height: context.height(0.085),
@@ -47,7 +46,7 @@ class LoginPage extends StatelessWidget {
           ),
         ),
         child: const Text(
-          'login',
+          'sign up',
           style: TextStyle(
             fontSize: 18,
           ),
@@ -65,7 +64,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  NamePassTextFormField get usernameTextFormField {
+  NamePassTextFormField get userNameTextFormField {
     return NamePassTextFormField(
       textEditingController: userNameTextEditingController,
       label: "Phone, email or username",
