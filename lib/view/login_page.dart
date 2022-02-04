@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_app/util/extensions/context_extensions.dart';
 import 'package:shopping_app/util/widgets/text_form_fields/name_pass_text_form_field.dart';
+import 'package:shopping_app/view/home_page.dart';
+import 'package:shopping_app/view/sign_up_page.dart';
 
 class LoginPage extends StatelessWidget {
   static const ROUTE = "/loginPage";
@@ -24,13 +26,27 @@ class LoginPage extends StatelessWidget {
               passwordTextFormField,
               const Spacer(flex: 7),
               loginButton(context),
-              const Spacer(),
-              Text("If you don't have user account click here"),
+              signUpTextButton(context),
               const Spacer(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget signUpTextButton(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("If you don't have user account"),
+        TextButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(SignUpPage.ROUTE);
+          },
+          child: Text("click here"),
+        ),
+      ],
     );
   }
 
@@ -52,7 +68,9 @@ class LoginPage extends StatelessWidget {
             fontSize: 18,
           ),
         ),
-        onPressed: () => {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(HomePage.ROUTE);
+        },
       ),
     );
   }
