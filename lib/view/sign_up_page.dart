@@ -51,7 +51,9 @@ class SignUpPage extends StatelessWidget {
             fontSize: 18,
           ),
         ),
-        onPressed: () => {},
+        onPressed: () {
+          Navigator.of(context).pop();
+        },
       ),
     );
   }

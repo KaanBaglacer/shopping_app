@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/view/home_page.dart';
 import 'package:shopping_app/view/login_page.dart';
 import 'package:shopping_app/view/sign_up_page.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
 
   final Map<String, Widget Function(BuildContext)> routes = {
     LoginPage.ROUTE: (_) => LoginPage(),
-    SignUpPage.ROUTE: (_) => SignUpPage()
+    SignUpPage.ROUTE: (_) => SignUpPage(),
+    HomePage.ROUTE: (_) => HomePage()
   };
 }
